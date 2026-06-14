@@ -60,6 +60,8 @@ a{text-decoration:none;color:inherit}
 .brand-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.28rem;letter-spacing:.5px;color:var(--white);transition:color .3s}
 .brand-text b{font-weight:800}
 .brand-utk{color:var(--orange)}
+.brand-k{color:var(--teal)}
+.brand-footer .brand-text .brand-k{color:var(--teal-bright)}
 .scrolled .brand-text{color:var(--navy-800)}
 
 .nav{display:flex;align-items:center;gap:6px}
@@ -95,6 +97,8 @@ a{text-decoration:none;color:inherit}
 .btn-orange{background:var(--orange);color:#fff;box-shadow:0 10px 26px rgba(245,130,31,.4)}
 .btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px)}
 .btn-block{width:100%}
+.btn-ghost{background:#fff;color:var(--navy-800);border:1.5px solid var(--gray-200);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{border-color:var(--navy-700);transform:translateY(-2px);box-shadow:var(--shadow-md)}
 
 /* ============ HERO ============ */
 .hero{
@@ -154,7 +158,7 @@ a{text-decoration:none;color:inherit}
 .kicker-orange{color:var(--orange)}
 .section-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.5px}
 .section-head-light h2,.section-head-light .lead{color:#fff}
-.lead{color:var(--muted);font-size:1.06rem;font-weight:300}
+.lead{color:#46566f;font-size:1.06rem;font-weight:400}
 .section-head-light .lead{color:rgba(255,255,255,.8)}
 
 /* ============ PILLARS ============ */
@@ -389,6 +393,25 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
 }
 .brand-hero .container{display:flex;flex-direction:column;align-items:center}
 
+/* Hero intro copy */
+.brand-hero-intro{text-align:center;max-width:780px;margin:0 auto 46px}
+.bh-eyebrow{
+  display:inline-block;font-family:'Raleway',sans-serif;font-weight:700;
+  font-size:.74rem;letter-spacing:2.2px;text-transform:uppercase;color:var(--teal);
+  background:rgba(21,169,154,.08);border:1px solid rgba(21,169,154,.25);
+  padding:7px 16px;border-radius:30px;margin-bottom:22px;
+}
+.bh-title{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.12;
+  letter-spacing:-1px;color:var(--navy-800);margin-bottom:18px;
+}
+.bh-sub{color:#46566f;font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.7;margin-bottom:30px}
+.bh-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Keep the about headline on one line on desktop */
+#about .section-head{max-width:980px}
+
 /* Logo lockup */
 .brand-hero-stack{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px}
 .brand-hero-mark{width:clamp(220px,32vw,300px);height:auto;margin-bottom:8px}
@@ -441,7 +464,7 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
   line-height:1.25;margin-bottom:11px;
 }
 .brand-pillar p{
-  color:rgba(255,255,255,.66);font-size:.82rem;
+  color:rgba(255,255,255,.85);font-size:.82rem;
   font-weight:300;line-height:1.55;max-width:200px;
 }
 
