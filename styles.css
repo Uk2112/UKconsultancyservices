@@ -300,6 +300,7 @@ a{text-decoration:none;color:inherit}
 .contact-form{background:#fff;border-radius:var(--radius);padding:34px 32px;box-shadow:var(--shadow-lg)}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:.82rem;font-weight:600;color:var(--navy-700);margin-bottom:7px;letter-spacing:.2px}
+.field label .req{color:var(--orange)}
 .field input,.field select,.field textarea{
   width:100%;padding:13px 15px;border:1.5px solid var(--gray-200);border-radius:11px;
   font-family:'Poppins',sans-serif;font-size:.94rem;color:var(--ink);background:var(--gray-50);

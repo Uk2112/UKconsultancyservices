@@ -41,8 +41,8 @@
 <section class="brand-hero" id="home">
   <div class="container">
     <div class="brand-hero-intro reveal">
-      <h1 class="bh-title">Engineering expertise that delivers <span class="c-orange">real impact</span></h1>
-      <p class="bh-sub">CONSULTUTK bridges industry and academia — solving complex engineering challenges, mentoring the next generation of nation builders, and driving innovation for a smarter tomorrow.</p>
+      <h1 class="bh-title">Expertise that delivers <span class="c-orange">real impact</span></h1>
+      <p class="bh-sub">Creating a future where engineering expertise, continuous learning, and innovation empower individuals, businesses, and communities to achieve more.</p>
       <div class="bh-actions">
         <a href="#contact" class="btn btn-orange">Talk to an Expert</a>
         <a href="#solutions" class="btn btn-ghost">Explore Solutions</a>
@@ -135,8 +135,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="kicker">Industry Solutions</span>
-      <h2>Comprehensive engineering for real-world challenges</h2>
-      <p class="lead">From environmental test chambers to refrigeration design and manufacturing optimization — practical solutions grounded in real-world experience.</p>
+      <h2>Comprehensive engineering solutions for real-world challenges</h2>
+      <p class="lead">From concept to commercialization, we deliver multidisciplinary engineering expertise across thermal systems, product development, manufacturing, reliability, and technical consulting—transforming complex challenges into practical, high-impact solutions.</p>
     </div>
 
     <div class="card-grid">
@@ -144,7 +144,7 @@
         <div class="svc-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
         </div>
-        <h3>Environmental &amp; Battery Test Systems</h3>
+        <h3>Environmental Test Chamber Development</h3>
         <p>Design and development of climate chambers, thermal cycling, and battery test solutions with precise control.</p>
       </article>
       <article class="svc-card reveal">
@@ -267,7 +267,7 @@
       <article class="case-card reveal">
         <div class="case-thumb thumb-1"><span class="case-tag">Test Systems</span></div>
         <div class="case-body">
-          <h3>Battery Test Chamber Development</h3>
+          <h3>Environmental Test Chamber Development</h3>
           <p>Designed and developed a 1000L battery test chamber with a 10&deg;C/min ramp rate (-40&deg;C to 150&deg;C).</p>
           <a href="#contact" class="case-link">Read more →</a>
         </div>
@@ -360,15 +360,22 @@
       <h2>Share your challenge. Let's create the right solution.</h2>
       <p class="lead">Whether you're solving a complex engineering problem or building your career, we'd love to hear from you.</p>
       <ul class="contact-list">
-        <li><span class="ci">✆</span> +91 91357 28791</li>
         <li><span class="ci">✉</span> consultutk@gmail.com</li>
         <li><span class="ci">⊕</span> www.consultutk.in</li>
       </ul>
     </div>
 
     <form class="contact-form reveal" id="contactForm" novalidate>
-      <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your name" /></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@company.com" /></div>
+      <!-- Web3Forms: paste your access key below (get it free at https://web3forms.com using consultutk@gmail.com) -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New enquiry from CONSULTUTK website" />
+      <input type="hidden" name="from_name" value="CONSULTUTK Website" />
+      <!-- Honeypot spam trap (leave empty / hidden) -->
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
+      <div class="field"><label for="name">Name <span class="req" aria-hidden="true">*</span></label><input id="name" name="name" type="text" required placeholder="Your name" /></div>
+      <div class="field"><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required placeholder="you@company.com" /></div>
+      <div class="field"><label for="mobile">Mobile / Contact number</label><input id="mobile" name="mobile" type="tel" placeholder="+91 9XXXXXXXXX" /></div>
       <div class="field"><label for="topic">I'm interested in</label>
         <select id="topic" name="topic">
           <option>Engineering Consulting</option>
@@ -377,9 +384,9 @@
           <option>Partnership</option>
         </select>
       </div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or goal"></textarea></div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="4" placeholder="Tell us about your project or goal"></textarea></div>
       <button type="submit" class="btn btn-orange btn-block">Send Message</button>
-      <p class="form-note" id="formNote" hidden>Thanks — your message is ready. Connect a form handler (e.g. Formspree) to receive submissions.</p>
+      <p class="form-note" id="formNote" hidden></p>
     </form>
   </div>
 </section>

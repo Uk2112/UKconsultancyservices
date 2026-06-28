@@ -61,17 +61,51 @@ const statIO = new IntersectionObserver(
 );
 document.querySelectorAll('.stat-num').forEach(el => statIO.observe(el));
 
-// ===== Contact form (front-end demo) =====
+// ===== Contact form (submits to Web3Forms -> email) =====
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
-form.addEventListener('submit', e => {
+const submitBtn = form.querySelector('button[type="submit"]');
+const submitLabel = submitBtn.textContent;
+
+const showNote = (msg, ok) => {
+  note.textContent = msg;
+  note.style.color = ok ? '' : '#e23b3b';
+  note.hidden = false;
+};
+
+form.addEventListener('submit', async e => {
   e.preventDefault();
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
-  note.hidden = false;
-  form.querySelector('button').textContent = 'Message Ready ✓';
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+  note.hidden = true;
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form)
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      form.reset();
+      submitBtn.textContent = 'Message Sent ✓';
+      showNote('Thanks — your message has been sent. We’ll get back to you soon.', true);
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
+      showNote(data.message || 'Something went wrong. Please try again or email us directly.', false);
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = submitLabel;
+    showNote('Network error. Please try again or email consultutk@gmail.com directly.', false);
+  }
 });
 
 // ===== Footer year =====
