@@ -127,16 +127,34 @@ if (topicSelect && !Array.from(topicSelect.options).some(option => option.value 
 }
 
 // ===== Compact homepage spacing =====
-// Reduce the large visual gap between the hero and the next section.
+// Reduce large gaps between the hero and content sections, and between
+// section headings and their content, without changing the overall design.
 const compactHeroStyle = document.createElement('style');
 compactHeroStyle.textContent = `
-  .brand-hero { padding-bottom: 24px !important; }
-  .pillars { padding-top: 42px !important; }
-  .pillars .section-head { margin-bottom: 42px !important; }
+  .brand-hero { padding-bottom: 18px !important; }
+  .pillars { padding-top: 28px !important; padding-bottom: 58px !important; }
+  .pillars .section-head { margin-bottom: 36px !important; }
+  .solutions { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .solutions .section-head { margin-bottom: 40px !important; }
+  .industries { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .industries .section-head { margin-bottom: 40px !important; }
+  .why { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .why .section-head { margin-bottom: 40px !important; }
+  .cases { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .cases .section-head { margin-bottom: 40px !important; }
+  .insights { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .insights .section-head { margin-bottom: 40px !important; }
+  .engage { padding-top: 58px !important; padding-bottom: 58px !important; }
+  .engage .section-head { margin-bottom: 40px !important; }
+  .academy { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .contact { padding-top: 64px !important; padding-bottom: 64px !important; }
   @media (max-width: 600px) {
-    .brand-hero { padding-bottom: 22px !important; }
-    .pillars { padding-top: 36px !important; }
-    .pillars .section-head { margin-bottom: 34px !important; }
+    .brand-hero { padding-bottom: 16px !important; }
+    .pillars { padding-top: 24px !important; padding-bottom: 46px !important; }
+    .pillars .section-head { margin-bottom: 30px !important; }
+    .solutions, .industries, .why, .cases, .insights, .engage { padding-top: 48px !important; padding-bottom: 48px !important; }
+    .solutions .section-head, .industries .section-head, .why .section-head, .cases .section-head, .insights .section-head, .engage .section-head { margin-bottom: 32px !important; }
+    .academy, .contact { padding-top: 54px !important; padding-bottom: 54px !important; }
   }
 `;
 document.head.appendChild(compactHeroStyle);
