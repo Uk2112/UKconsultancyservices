@@ -221,22 +221,18 @@ a{text-decoration:none;color:inherit}
 .academy-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .acad-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);padding:26px 22px;transition:transform .3s,background .3s}
 .acad-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}
-.acad-icon{width:48px;height:48px;border-radius:12px;background:rgba(30,201,182,.16);display:grid;place-items:center;margin-bottom:16px}
-.acad-icon svg{width:24px;height:24px;fill:none;stroke:var(--teal-bright);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.acad-card h4{color:#fff;font-size:1.02rem;font-weight:700;margin-bottom:7px}
-.acad-card p{color:rgba(255,255,255,.7);font-size:.86rem;font-weight:300}
+.acad-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.07);display:grid;place-items:center;margin-bottom:14px}
+.acad-icon svg{width:25px;height:25px;fill:none;stroke:var(--teal-bright);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.acad-card h4{color:#fff;font-size:1rem;margin-bottom:6px}
+.acad-card p{color:rgba(255,255,255,.68);font-size:.85rem;font-weight:300}
 
 /* ============ INDUSTRIES ============ */
-.ind-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
-.ind-card{
-  background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-sm);
-  padding:26px 12px;text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s;
-}
-.ind-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--teal)}
-.ind-icon{width:48px;height:48px;margin:0 auto 14px;display:grid;place-items:center}
-.ind-icon svg{width:30px;height:30px;fill:none;stroke:var(--navy-700);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
-.ind-card:hover .ind-icon svg{stroke:var(--teal)}
-.ind-card span{display:block;font-size:.82rem;font-weight:600;color:var(--navy-700);line-height:1.35}
+.ind-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.ind-card{min-height:124px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;padding:18px 10px;background:#fff;border:1px solid var(--gray-200);border-radius:13px;transition:transform .3s,box-shadow .3s}
+.ind-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm)}
+.ind-icon{width:44px;height:44px;border-radius:12px;background:var(--gray-50);display:grid;place-items:center}
+.ind-icon svg{width:23px;height:23px;fill:none;stroke:var(--teal);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ind-card span{font-size:.78rem;font-weight:600;color:var(--navy-700);line-height:1.35}
 
 /* ============ WHY ============ */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -370,11 +366,9 @@ a{text-decoration:none;color:inherit}
    Scoped under body.brand-hero-active — remove that body class
    to fully restore the original dark hero. */
 
-/* Header logo image */
 .brand-mark-img{flex:none;height:38px;width:auto;display:block;transition:transform .5s var(--ease)}
 .brand:hover .brand-mark-img{transform:scale(1.05)}
 
-/* Header always uses the light treatment on the brand hero */
 body.brand-hero-active .site-header:not(.scrolled){
   background:rgba(255,255,255,.92);
   backdrop-filter:blur(12px);
@@ -385,17 +379,18 @@ body.brand-hero-active .site-header:not(.scrolled) .nav a{color:var(--navy-700)}
 body.brand-hero-active .site-header:not(.scrolled) .nav a:hover{background:var(--gray-100)}
 body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:var(--navy-800)}
 
-/* Hero shell — light background, centred content */
+/* Hero shell — compact height so the next section appears sooner */
 .brand-hero{
-  position:relative;min-height:100vh;
-  display:flex;align-items:center;
+  position:relative;
+  min-height:0;
+  display:flex;
+  align-items:center;
   background:linear-gradient(180deg,#f0f3f8 0%,#f8fafc 60%,#eef2f7 100%);
-  padding:140px 0 60px;
+  padding:108px 0 52px;
 }
 .brand-hero .container{display:flex;flex-direction:column;align-items:center}
 
-/* Hero intro copy */
-.brand-hero-intro{text-align:center;max-width:780px;margin:0 auto 46px}
+.brand-hero-intro{text-align:center;max-width:780px;margin:0 auto 38px}
 .bh-eyebrow{
   display:inline-block;font-family:'Raleway',sans-serif;font-weight:700;
   font-size:.74rem;letter-spacing:2.2px;text-transform:uppercase;color:var(--teal);
@@ -410,10 +405,7 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
 .bh-sub{color:#46566f;font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.7;margin-bottom:30px}
 .bh-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-/* Keep the about headline on one line on desktop */
 #about .section-head{max-width:980px}
-
-/* Logo lockup */
 .brand-hero-stack{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px}
 .brand-hero-mark{width:clamp(220px,32vw,300px);height:auto;margin-bottom:8px}
 .brand-hero-wordmark{
@@ -424,7 +416,6 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
 .brand-hero-wordmark b{font-weight:900;color:var(--navy-800)}
 .brand-hero-wordmark .w-ut{color:var(--orange)}
 .brand-hero-wordmark .w-k{color:var(--teal)}
-
 .brand-hero-pillars-line{
   font-family:'Raleway',sans-serif;font-weight:700;
   font-size:clamp(.62rem,1.1vw,.8rem);
@@ -437,13 +428,10 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
 .brand-hero-pillars-line em{font-style:normal;font-weight:800;margin:0 9px}
 .brand-hero-pillars-line .sep-teal{color:var(--teal)}
 .brand-hero-pillars-line .sep-orange{color:var(--orange)}
-
 .brand-hero-tagline{
   font-style:italic;color:var(--muted);
   font-size:clamp(.92rem,1.5vw,1.08rem);font-weight:400;margin-bottom:42px;
 }
-
-/* Dark rounded card with three pillars */
 .brand-hero-card{
   width:100%;max-width:920px;
   background:linear-gradient(135deg,#0c2240 0%,#0a1c36 100%);
@@ -459,25 +447,13 @@ body.brand-hero-active .site-header:not(.scrolled) .nav-toggle span{background:v
 .bp-icon svg{width:40px;height:40px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .bp-icon.bp-teal svg{stroke:var(--teal-bright)}
 .bp-icon.bp-orange svg{stroke:var(--orange)}
-.brand-pillar h3{
-  font-family:'Montserrat',sans-serif;color:#fff;
-  font-size:1.02rem;font-weight:700;letter-spacing:1.4px;
-  line-height:1.25;margin-bottom:11px;
-}
-.brand-pillar p{
-  color:rgba(255,255,255,.85);font-size:.82rem;
-  font-weight:300;line-height:1.55;max-width:200px;
-}
+.brand-pillar h3{font-family:'Montserrat',sans-serif;color:#fff;font-size:1.02rem;font-weight:700;letter-spacing:1.4px;line-height:1.25;margin-bottom:11px}
+.brand-pillar p{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:300;line-height:1.55;max-width:200px}
 
-/* Responsive */
-@media(max-width:740px){
-  .brand-hero{padding:118px 0 48px}
-  .brand-hero-pillars-line{letter-spacing:1.4px}
-  .brand-hero-pillars-line em{margin:0 5px}
-  .brand-hero-card{
-    grid-template-columns:1fr;
-    padding:14px 24px 28px;max-width:420px;
-  }
-  .brand-pillar{padding:26px 16px}
-  .bp-divider{width:auto;height:1px;margin:0 18px}
+@media(max-width:980px){
+  .brand-hero{padding:98px 0 44px}
+}
+@media(max-width:600px){
+  .brand-hero{padding:92px 0 42px}
+  .brand-hero-intro{margin-bottom:30px}
 }
