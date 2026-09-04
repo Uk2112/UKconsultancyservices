@@ -110,3 +110,18 @@ form.addEventListener('submit', async e => {
 
 // ===== Footer year =====
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== CONSULTUTK requested UI updates =====
+// The three hero cards repeat the detailed sections below, so remove the
+// repeated hero card while leaving the rest of the page unchanged.
+const repeatedHeroCard = document.querySelector('.brand-hero-card');
+if (repeatedHeroCard) repeatedHeroCard.remove();
+
+// Add Vendor Development to the enquiry topic list.
+const topicSelect = document.getElementById('topic');
+if (topicSelect && !Array.from(topicSelect.options).some(option => option.value === 'Vendor Development')) {
+  const vendorOption = document.createElement('option');
+  vendorOption.value = 'Vendor Development';
+  vendorOption.textContent = 'Vendor Development';
+  topicSelect.appendChild(vendorOption);
+}
