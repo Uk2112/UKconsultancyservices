@@ -125,3 +125,18 @@ if (topicSelect && !Array.from(topicSelect.options).some(option => option.value 
   vendorOption.textContent = 'Vendor Development';
   topicSelect.appendChild(vendorOption);
 }
+
+// ===== Compact homepage spacing =====
+// Reduce the large visual gap between the hero and the next section.
+const compactHeroStyle = document.createElement('style');
+compactHeroStyle.textContent = `
+  .brand-hero { padding-bottom: 24px !important; }
+  .pillars { padding-top: 42px !important; }
+  .pillars .section-head { margin-bottom: 42px !important; }
+  @media (max-width: 600px) {
+    .brand-hero { padding-bottom: 22px !important; }
+    .pillars { padding-top: 36px !important; }
+    .pillars .section-head { margin-bottom: 34px !important; }
+  }
+`;
+document.head.appendChild(compactHeroStyle);
