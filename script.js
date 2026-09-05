@@ -158,3 +158,176 @@ compactHeroStyle.textContent = `
   }
 `;
 document.head.appendChild(compactHeroStyle);
+
+// ===== Customer Reviews =====
+// Reviews are submitted to the existing Web3Forms inbox for moderation.
+// Because GitHub Pages is static, approved reviews are published manually
+// in this page rather than appearing automatically from customer input.
+const reviewsAnchor = document.querySelector('.insights');
+if (reviewsAnchor && !document.getElementById('reviews')) {
+  const reviewsSection = document.createElement('section');
+  reviewsSection.className = 'reviews section section-light';
+  reviewsSection.id = 'reviews';
+  reviewsSection.innerHTML = `
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker kicker-orange">Customer Reviews</span>
+        <h2>What our clients say</h2>
+        <p class="lead">We value every customer's experience. Share your feedback and help us improve.</p>
+      </div>
+
+      <div class="reviews-layout">
+        <div class="review-list reveal">
+          <div class="review-empty" id="reviewEmpty">
+            <div class="review-quote">“</div>
+            <h3>Be our first reviewer</h3>
+            <p>Your experience can help future customers understand what it is like to work with CONSULTUTK.</p>
+          </div>
+        </div>
+
+        <div class="review-form-card reveal">
+          <h3>Leave a review</h3>
+          <p class="review-form-intro">Tell us about your experience. Submitted reviews are checked before appearing publicly.</p>
+          <form id="reviewForm" novalidate>
+            <input type="hidden" name="subject" value="New CONSULTUTK Customer Review" />
+            <input type="hidden" name="from_name" value="CONSULTUTK Website Review Form" />
+            <input type="hidden" name="form_type" value="customer_review" />
+            <div class="review-fields">
+              <label>Name<input type="text" name="reviewer_name" required maxlength="80" autocomplete="name" placeholder="Your name" /></label>
+              <label>Company / Designation <span>(optional)</span><input type="text" name="reviewer_role" maxlength="100" placeholder="Company or designation" /></label>
+            </div>
+            <fieldset class="rating-field">
+              <legend>Your rating</legend>
+              <div class="star-rating" role="radiogroup" aria-label="Rating from 1 to 5 stars">
+                <input type="radio" id="rating5" name="rating" value="5" required /><label for="rating5" title="5 stars">★</label>
+                <input type="radio" id="rating4" name="rating" value="4" /><label for="rating4" title="4 stars">★</label>
+                <input type="radio" id="rating3" name="rating" value="3" /><label for="rating3" title="3 stars">★</label>
+                <input type="radio" id="rating2" name="rating" value="2" /><label for="rating2" title="2 stars">★</label>
+                <input type="radio" id="rating1" name="rating" value="1" /><label for="rating1" title="1 star">★</label>
+              </div>
+            </fieldset>
+            <label>Review<textarea name="review" rows="5" required maxlength="1000" placeholder="How was your experience with CONSULTUTK?"></textarea></label>
+            <label class="review-consent"><input type="checkbox" name="publish_consent" value="Yes" required /> <span>I agree that CONSULTUTK may publish my review on this website.</span></label>
+            <button class="btn btn-orange btn-block" type="submit">Submit Review</button>
+            <p class="review-note" id="reviewNote" hidden></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  `;
+  reviewsAnchor.parentNode.insertBefore(reviewsSection, reviewsAnchor);
+
+  // Add a Reviews link to the navigation.
+  if (!nav.querySelector('a[href="#reviews"]')) {
+    const reviewNav = document.createElement('a');
+    reviewNav.href = '#reviews';
+    reviewNav.textContent = 'Reviews';
+    nav.insertBefore(reviewNav, nav.querySelector('.nav-cta'));
+    reviewNav.addEventListener('click', () => {
+      nav.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  const reviewStyle = document.createElement('style');
+  reviewStyle.textContent = `
+    .reviews-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:stretch}
+    .review-list{display:grid;gap:18px}
+    .review-empty{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:44px 34px;text-align:center;display:grid;place-items:center;min-height:320px;box-shadow:var(--shadow-sm)}
+    .review-quote{font-family:Georgia,serif;font-size:5rem;line-height:.7;color:var(--orange);height:58px}
+    .review-empty h3{font-size:1.35rem;margin:8px 0 8px}
+    .review-empty p{color:var(--muted);max-width:480px}
+    .review-form-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-md)}
+    .review-form-card h3{font-size:1.35rem;margin-bottom:8px}
+    .review-form-intro{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+    .review-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .review-form-card label{display:block;font-size:.84rem;font-weight:600;color:var(--navy-800);margin-bottom:16px}
+    .review-form-card label span{font-weight:400;color:var(--muted)}
+    .review-form-card input[type="text"],.review-form-card textarea{width:100%;margin-top:7px;border:1px solid var(--gray-200);border-radius:10px;padding:11px 12px;font:inherit;color:var(--ink);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+    .review-form-card input[type="text"]:focus,.review-form-card textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(245,130,31,.12)}
+    .rating-field{border:0;padding:0;margin:0 0 14px}
+    .rating-field legend{font-size:.84rem;font-weight:600;color:var(--navy-800);margin-bottom:7px}
+    .star-rating{display:inline-flex;flex-direction:row-reverse;justify-content:flex-end;gap:3px}
+    .star-rating input{position:absolute;opacity:0;pointer-events:none}
+    .star-rating label{font-size:2rem;line-height:1;cursor:pointer;color:#d4dce7;margin:0;transition:color .15s,transform .15s}
+    .star-rating label:hover,.star-rating label:hover ~ label,.star-rating input:checked ~ label{color:var(--orange)}
+    .star-rating label:hover{transform:translateY(-1px)}
+    .review-consent{display:flex !important;gap:9px;align-items:flex-start;font-size:.78rem !important;font-weight:400 !important;color:var(--muted) !important}
+    .review-consent input{margin-top:3px;accent-color:var(--orange)}
+    .review-note{font-size:.85rem;margin-top:12px;color:var(--teal)}
+    .review-note.error{color:#e23b3b}
+    .published-review{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+    .published-review .review-stars{color:var(--orange);letter-spacing:2px;margin-bottom:12px}
+    .published-review blockquote{font-size:1rem;color:var(--navy-800);margin-bottom:18px}
+    .published-review .reviewer{font-size:.86rem;font-weight:600;color:var(--muted)}
+    @media(max-width:800px){.reviews-layout{grid-template-columns:1fr}.review-fields{grid-template-columns:1fr}}
+  `;
+  document.head.appendChild(reviewStyle);
+
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewNote = document.getElementById('reviewNote');
+  const reviewSubmit = reviewForm.querySelector('button[type="submit"]');
+  const reviewAccessKey = form.querySelector('[name="access_key"]');
+
+  if (reviewAccessKey) {
+    const access = document.createElement('input');
+    access.type = 'hidden';
+    access.name = 'access_key';
+    access.value = reviewAccessKey.value;
+    reviewForm.appendChild(access);
+  }
+
+  reviewForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!reviewForm.checkValidity()) {
+      reviewForm.reportValidity();
+      return;
+    }
+    reviewSubmit.disabled = true;
+    reviewSubmit.textContent = 'Submitting…';
+    reviewNote.hidden = true;
+    reviewNote.classList.remove('error');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(reviewForm)
+      });
+      const data = await res.json();
+      if (data.success) {
+        reviewForm.reset();
+        reviewSubmit.disabled = false;
+        reviewSubmit.textContent = 'Review Submitted ✓';
+        reviewNote.textContent = 'Thank you! Your review has been received and will be checked before publication.';
+        reviewNote.hidden = false;
+      } else {
+        reviewSubmit.disabled = false;
+        reviewSubmit.textContent = 'Submit Review';
+        reviewNote.textContent = data.message || 'Unable to submit the review. Please try again.';
+        reviewNote.classList.add('error');
+        reviewNote.hidden = false;
+      }
+    } catch (err) {
+      reviewSubmit.disabled = false;
+      reviewSubmit.textContent = 'Submit Review';
+      reviewNote.textContent = 'Network error. Please try again or email consultutk@gmail.com directly.';
+      reviewNote.classList.add('error');
+      reviewNote.hidden = false;
+    }
+  });
+
+  // Add approved reviews here after you receive and approve them.
+  const approvedReviews = [];
+  if (approvedReviews.length) {
+    const list = document.querySelector('.review-list');
+    const empty = document.getElementById('reviewEmpty');
+    if (empty) empty.remove();
+    approvedReviews.forEach(r => {
+      const card = document.createElement('article');
+      card.className = 'published-review';
+      card.innerHTML = `<div class="review-stars" aria-label="${r.rating} out of 5 stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><blockquote>“${r.text.replace(/[<>]/g, '')}”</blockquote><div class="reviewer">${r.name.replace(/[<>]/g, '')}${r.role ? ` · ${r.role.replace(/[<>]/g, '')}` : ''}</div>`;
+      list.appendChild(card);
+    });
+  }
+}
