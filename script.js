@@ -331,3 +331,62 @@ if (reviewsAnchor && !document.getElementById('reviews')) {
     });
   }
 }
+
+// ===== SEO metadata for Google =====
+// Keep the existing page design unchanged while ensuring crawlers that
+// render JavaScript also receive the site's canonical metadata and schema.
+(() => {
+  const setMeta = (selector, attrs) => {
+    let el = document.head.querySelector(selector);
+    if (!el) {
+      el = document.createElement('meta');
+      document.head.appendChild(el);
+    }
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+  };
+
+  document.title = 'CONSULTUTK | Engineering Consulting, Test Chambers & Vendor Development';
+  setMeta('meta[name="description"]', { name: 'description', content: 'CONSULTUTK provides engineering consulting in environmental test chambers, thermal and refrigeration systems, HVAC&R, manufacturing, reliability, vendor development and technical training across India.' });
+  setMeta('meta[name="robots"]', { name: 'robots', content: 'index, follow, max-image-preview:large' });
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = 'https://consultutk.in/';
+
+  setMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' });
+  setMeta('meta[property="og:title"]', { property: 'og:title', content: 'CONSULTUTK | Engineering Consulting & Technical Solutions' });
+  setMeta('meta[property="og:description"]', { property: 'og:description', content: 'Engineering consulting, environmental test chambers, thermal and refrigeration engineering, vendor development, reliability and technical training.' });
+  setMeta('meta[property="og:url"]', { property: 'og:url', content: 'https://consultutk.in/' });
+  setMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'CONSULTUTK' });
+
+  let schema = document.getElementById('consultutk-schema');
+  if (!schema) {
+    schema = document.createElement('script');
+    schema.type = 'application/ld+json';
+    schema.id = 'consultutk-schema';
+    schema.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'CONSULTUTK',
+      url: 'https://consultutk.in/',
+      email: 'consultutk@gmail.com',
+      description: 'Engineering consulting and technical solutions covering environmental test chambers, thermal and refrigeration systems, HVAC&R, manufacturing, reliability, vendor development and technical training.',
+      areaServed: { '@type': 'Country', name: 'India' },
+      serviceType: [
+        'Engineering Consulting',
+        'Environmental Test Chamber Development',
+        'Thermal Engineering',
+        'Refrigeration and HVAC&R Engineering',
+        'Manufacturing and Process Engineering',
+        'Vendor Development and Audits',
+        'Reliability Engineering and Failure Analysis',
+        'Technical Training and Mentorship'
+      ]
+    });
+    document.head.appendChild(schema);
+  }
+})();
