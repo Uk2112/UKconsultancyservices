@@ -18,6 +18,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"Environmental Test Chamber Design & Development","provider":{"@type":"ProfessionalService","name":"CONSULTUTK","url":"https://consultutk.in/","email":"consultutk@gmail.com"},"areaServed":{"@type":"Country","name":"India"},"serviceType":"Environmental test chamber engineering consulting"}
 </script>
+<style id="lead-form-style">.lead-form-section{padding:0 0 54px}.lead-form-card{background:#fff;border:1px solid #dfe6eb;border-radius:16px;padding:30px;box-shadow:0 8px 28px rgba(11,34,57,.06)}.lead-form-card h2{margin-top:0}.lead-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.lead-form-card label{display:block;font-weight:700;color:#0b2239;font-size:.9rem}.lead-form-card input,.lead-form-card textarea{width:100%;margin-top:6px;padding:11px 12px;border:1px solid #d8e0e6;border-radius:9px;font:inherit;box-sizing:border-box}.lead-form-card textarea{min-height:120px;resize:vertical}.lead-form-card .full{grid-column:1/-1}.lead-form-card button{margin-top:4px}.lead-form-note{margin:10px 0 0;color:#0d8b8b;font-size:.9rem}.lead-form-note.error{color:#c43d3d}@media(max-width:760px){.lead-form-grid{grid-template-columns:1fr}}</style>
 </head>
 <body>
 <header class="top"><div class="wrap nav"><a class="brand" href="index.html"><img src="utk-logo.png" alt="CONSULTUTK logo"><span>CONSULTUTK</span></a><nav class="links"><a href="index.html#solutions">Solutions</a><a href="index.html#case-studies">Case Studies</a><a href="index.html#insights">Insights</a><a href="index.html#contact">Contact</a></nav></div></header>
@@ -25,10 +26,32 @@
 <section class="hero"><div class="wrap"><div class="eyebrow">Environmental Test Chamber Engineering</div><h1>Environmental Test Chamber Design &amp; Development</h1><p>CONSULTUTK supports engineering teams in the design and development of environmental test chambers for controlled temperature and thermal cycling applications, including climate and battery test solutions.</p></div></section>
 <section class="wrap grid">
 <div class="card"><h2>Engineering scope</h2><p>Environmental test chambers bring together refrigeration, heating, airflow, controls, insulation, mechanical design and test requirements. CONSULTUTK approaches the system as an integrated engineering problem rather than treating the chamber as an isolated enclosure.</p><h3>Typical consulting activities</h3><ul><li>Requirement definition and chamber duty analysis</li><li>Temperature range, ramp-rate and stability assessment</li><li>Refrigeration and heating system concept development</li><li>Airflow, evaporator/condenser and heat-transfer considerations</li><li>Insulation and thermal loss evaluation</li><li>Control strategy and sensor/interface review</li><li>Prototype development, test planning and design review</li><li>Battery and thermal-cycle test chamber engineering</li></ul><p>The exact design depends on chamber volume, temperature range, ramp rate, payload, heat load, humidity requirements and applicable test methods. These inputs are defined before component sizing and detailed design.</p></div>
-<aside class="card"><h2>Applications</h2><ul><li>Environmental and climate testing</li><li>Thermal cycling</li><li>Product validation</li><li>Battery testing</li><li>Component qualification</li><li>Prototype test chambers</li></ul><h3>Related CONSULTUTK services</h3><p><a href="thermal-refrigeration-hvac-engineering.html">Thermal &amp; HVAC&amp;R Engineering</a><br><a href="reliability-failure-analysis.html">Reliability &amp; Failure Analysis</a><br><a href="manufacturing-process-engineering.html">Manufacturing &amp; Process Engineering</a></p></aside>
+<aside class="card"><h2>Applications</h2><ul><li>Environmental and climate testing</li><li>Thermal cycling</li><li>Product validation</li><li>Battery testing</li><li>Component qualification</li><li>Prototype test chambers</li></ul><h3>Related CONSULTUTK services</h3><p><a href="thermal-refrigeration-hvac-engineering.html">Thermal &amp; HVAC&amp;R Engineering</a><br><a href="case-study-1000l-environmental-test-chamber.html">1000 L Environmental Test Chamber Case Study</a><br><a href="reliability-failure-analysis.html">Reliability &amp; Failure Analysis</a><br><a href="manufacturing-process-engineering.html">Manufacturing &amp; Process Engineering</a></p></aside>
+</section>
+<section class="w lead-form-section">
+  <div class="lead-form-card">
+    <h2>Request a Technical Discussion</h2>
+    <p>Share the chamber volume, temperature range, ramp-rate target, payload, ambient condition and duty cycle for a preliminary engineering discussion.</p>
+    <form id="technicalDiscussionForm" novalidate>
+      <input type="hidden" name="access_key" value="a9d9098e-149a-4375-8e09-4c0ac8f4906e">
+      <input type="hidden" name="subject" value="CONSULTUTK — Technical Discussion Request: Environmental Test Chamber Design">
+      <input type="hidden" name="from_name" value="CONSULTUTK Website">
+      <input type="hidden" name="topic" value="Environmental Test Chamber Design">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <div class="lead-form-grid">
+        <label>Name *<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label>
+        <label>Company<input name="company" type="text" autocomplete="organization" placeholder="Company name"></label>
+        <label>Email *<input name="email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+        <label>Mobile<input name="mobile" type="tel" autocomplete="tel" placeholder="+91 ..."></label>
+        <label class="full">Project / engineering requirement *<textarea name="message" required placeholder="Describe the application, requirement, problem or drawing/specification you want reviewed."></textarea></label>
+        <div class="full"><button class="btn" type="submit">Request Technical Discussion</button><p class="lead-form-note" id="leadFormNote" hidden></p></div>
+      </div>
+    </form>
+  </div>
 </section>
 <section class="wrap"><div class="cta"><div><h2>Discuss your test chamber requirement</h2><div>Share chamber volume, temperature range, ramp rate and payload requirements for an engineering discussion.</div></div><a class="btn" href="index.html#contact">Talk to an Expert</a></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> CONSULTUTK · Engineering Consulting · <a href="index.html">Home</a> · <a href="index.html#contact">Contact</a></div></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script id="lead-form-script">(()=>{const form=document.getElementById('technicalDiscussionForm');if(!form)return;const btn=form.querySelector('button[type="submit"]'),note=document.getElementById('leadFormNote');form.addEventListener('submit',async e=>{e.preventDefault();if(!form.checkValidity()){form.reportValidity();return}const original=btn.textContent;btn.disabled=true;btn.textContent='Sending…';note.hidden=true;note.classList.remove('error');try{const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});const data=await res.json();if(data.success){form.reset();btn.disabled=false;btn.textContent='Request Sent ✓';note.textContent='Thanks — your requirement has been sent. We’ll get back to you soon.';note.hidden=false}else{btn.disabled=false;btn.textContent=original;note.textContent=data.message||'Unable to send the request. Please try again.';note.classList.add('error');note.hidden=false}}catch(err){btn.disabled=false;btn.textContent=original;note.textContent='Network error. Please try again or email consultutk@gmail.com directly.';note.classList.add('error');note.hidden=false}})})();</script>
 </body></html>
